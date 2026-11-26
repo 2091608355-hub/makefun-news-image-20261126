@@ -4,15 +4,18 @@
 [![rank](https://make.fun/badge/news-image-20261126/2091608355-hub/makefun-news-image-20261126/rank.svg)](https://make.fun/bounty/news-image-20261126/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261126)
 [![reward](https://make.fun/badge/news-image-20261126/2091608355-hub/makefun-news-image-20261126/reward.svg)](https://make.fun/bounty/news-image-20261126?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261126)
 
-A one-image summary of the world's news of Thursday 26 November 2026: Kim Jong Un calls for wider tactical nuclear weapons deployment, the US proposes tariffs on 14 trading partners, Shenzhou-24 carries the first foreign astronaut to China's Tiangong station, a Chinese H-6 bomber flies near the Philippine coast, North Korea expels Switzerland's envoy. Also: Ukraine hits a Russian air base, Iran says ships hit mines in Hormuz, the UN warns of atrocity risk in Gaza, Bangladesh garment pay up 36%, Russia's oil refining at a 20-year low, Melania reunites nine Ukrainian and Russian children.
+One picture that tries to hold a whole day of world news: Thursday 26 November 2026.
+The front page in this repository leads with Kim Jong Un pushing tactical nuclear weapons wider, Washington floating tariffs on fourteen trading partners, and Shenzhou-24 taking the first foreign astronaut up to Tiangong.
+It also carries a Chinese H-6 bomber flying close to the Philippine coast and Pyongyang ordering Switzerland's envoy out, alongside fighting in Ukraine, mines reported in Hormuz, a UN warning over Gaza, a big garment pay rise in Bangladesh, Russian refining at a twenty-year low, and nine Ukrainian and Russian children brought back together.
 
-## Run it
+## How to run
 
 ```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+mkdir -p out
+MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-The program copies `entry.png` to the output directory as `entry.png`.
+Running it drops a copy of entry.png into the folder you point it at.
 
 ---
 

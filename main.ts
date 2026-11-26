@@ -1,22 +1,16 @@
-// News-image entry for make.fun (news-image-20261126), Node 22, standard library only.
-// The finished front page ships in this repository as entry.png, and this program
-// copies it to the grader's output path as /output/entry.png. The image sums up
-// the world's news of Thursday 26 November 2026: Kim Jong Un calls for wider
-// tactical nuclear weapons deployment, the US proposes tariffs on 14 trading
-// partners, Shenzhou-24 carries the first foreign astronaut to China's Tiangong
-// station, a Chinese H-6 bomber flies near the Philippine coast, North Korea
-// expels Switzerland's envoy, and more.
-//
-// Run it locally with:
-//   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+// Front page for 26 November 2026, built for the make.fun news-image contest.
+// This repository holds the finished picture as entry.png. All this script
+// does is place a copy of that picture where the grader looks for it.
+// No network, no drawing, no dependencies beyond the Node standard library.
 
-import { copyFileSync, mkdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 
-const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-const src = new URL('./entry.png', import.meta.url);
-mkdirSync(outDir, { recursive: true });
-copyFileSync(src, join(outDir, 'entry.png'));
-if (statSync(src).size !== statSync(join(outDir, 'entry.png')).size) {
-  throw new Error('entry.png copy size mismatch');
-}
+const targetDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+const picture = new URL("./entry.png", import.meta.url);
+const bytes = readFileSync(picture);
+
+mkdirSync(targetDir, { recursive: true });
+writeFileSync(join(targetDir, "entry.png"), bytes);
+const written = readFileSync(join(targetDir, "entry.png"));
+if (written.length !== bytes.length) throw new Error("entry.png did not copy completely");
